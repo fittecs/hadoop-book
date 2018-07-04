@@ -6,7 +6,9 @@ $ hadoop jar /usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-2.2.0.jar
 -input input/ncdc/all \
 -output output \
 -mapper ch02/src/main/ruby/max_temperature_map.rb \
--reducer ch02/src/main/ruby/max_temperature_reduce.rb
+-reducer ch02/src/main/ruby/max_temperature_reduce.rb \
+-file ch02/src/main/ruby/max_temperature_map.rb \
+-file ch02/src/main/ruby/max_temperature_reduce.rb
 =end
 
 STDIN.each_line do |line|
