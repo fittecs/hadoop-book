@@ -12,7 +12,18 @@ import org.apache.hadoop.util.ToolRunner;
 
 import v1.MaxTemperatureReducer;
 
-//Identical to v3 except for v4 mapper
+/**
+ * [実行]
+ * $ hadoop-book
+ * $ rm -fr output
+ * $ mvn compile
+ * $ export HADOOP_CLASSPATH=ch05/target/classes/
+ * $ hadoop v4.MaxTemperatureDriver -conf conf/hadoop-local.xml input/ncdc/sample.txt output
+ * $ hadoop v4.MaxTemperatureDriver -conf conf/hadoop-localhost.xml input/ncdc/sample.txt output
+ *
+ * ローカルJobRunnerを使用したMapReduce実行はあくまでさっと試す方法。
+ * reducerを一つしか使わないなど実際のMapReduceとは違う部分もある。
+ */
 public class MaxTemperatureDriver extends Configured implements Tool {
 
   @Override

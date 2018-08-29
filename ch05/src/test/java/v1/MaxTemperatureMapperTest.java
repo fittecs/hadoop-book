@@ -18,7 +18,7 @@ public class MaxTemperatureMapperTest {
     new MapDriver<LongWritable, Text, Text, IntWritable>()
       .withMapper(new MaxTemperatureMapper())
       .withInputValue(value)
-      .withOutput(new Text("1950"), new IntWritable(-11))
+      .withOutput(new Text("1950"), new IntWritable(-11)) // withOutputは複数指定可能
       .runTest();
   }
 // ^^ MaxTemperatureMapperTestV1

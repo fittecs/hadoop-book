@@ -7,6 +7,9 @@
  import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
  import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
+ import java.util.ArrayList;
+ import java.util.List;
+
  /**
  * JavaやMaven、Hadoopがインストール＆環境変数が設定された状態で、hadoop-book直下に移動してパッケージングを行ったのち、
  * 以下のコマンドを実行するとこのクラスが実行される。
@@ -26,7 +29,7 @@ public class MaxTemperature {
       System.exit(-1);
     }
 
-    // oHadoopジョブの実行情報を扱うオブジェクト
+    // Hadoopジョブの実行情報を扱うオブジェクト
     Job job = new Job();
     job.setNumReduceTasks(2);
 
@@ -59,6 +62,7 @@ public class MaxTemperature {
     job.setOutputKeyClass(Text.class);
     job.setOutputValueClass(IntWritable.class);
 
+    System.out.println("");
 
     // MapReduceジョブ実行プロセスの終了。
     System.exit(job.waitForCompletion(true) ? 0 : 1);

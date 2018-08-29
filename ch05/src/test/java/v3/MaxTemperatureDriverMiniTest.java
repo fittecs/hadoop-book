@@ -37,26 +37,28 @@ public class MaxTemperatureDriverMiniTest extends ClusterMapReduceTestCase {
   // Not marked with @Test since ClusterMapReduceTestCase is a JUnit 3 test case
   public void test() throws Exception {
     Configuration conf = createJobConf();
-    
+
+    // Mini HDFSにinput/ncdc/microをコピー
     Path localInput = new Path("input/ncdc/micro");
     Path input = getInputDir();
-    Path output = getOutputDir();
-    
-    // Copy input data into test HDFS
     getFileSystem().copyFromLocalFile(localInput, input);
-    
+
+    // outputに出力
+    Path output = getOutputDir();
+
+    // コマンドを実行するのと同じ意味
     MaxTemperatureDriver driver = new MaxTemperatureDriver();
     driver.setConf(conf);
-    
     int exitCode = driver.run(new String[] {
         input.toString(), output.toString() });
     assertThat(exitCode, is(0));
     
-    // Check the output is as expected
+    // コマンドを実行するとoutputフォルダに集計結果が出力されていることを確認
     Path[] outputFiles = FileUtil.stat2Paths(
         getFileSystem().listStatus(output, new OutputLogFilter()));
     assertThat(outputFiles.length, is(1));
-    
+
+    // 出力内容(年ごとの最高気温)が意図するものであることを内容確認
     InputStream in = getFileSystem().open(outputFiles[0]);
     BufferedReader reader = new BufferedReader(new InputStreamReader(in));
     assertThat(reader.readLine(), is("1949\t111"));

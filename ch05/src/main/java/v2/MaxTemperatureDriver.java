@@ -14,6 +14,14 @@ import org.apache.hadoop.util.ToolRunner;
 import v1.MaxTemperatureReducer;
 
 // vv MaxTemperatureDriverV2
+
+/*
+  $ hadoop-book
+  $ mvn compile
+  $ export HADOOP_CLASSPATH=ch05/target/classes/
+  $ hadoop v2.MaxTemperatureDriver ch05/input/ncdc/micro ch05/output
+  $ hadoop v2.MaxTemperatureDriver -conf conf/hadoop-local.xml ch05/input/ncdc/micro ch05/output
+ */
 public class MaxTemperatureDriver extends Configured implements Tool {
 
   @Override

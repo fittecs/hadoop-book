@@ -44,6 +44,7 @@ A module which allows the Hadoop dependencies to be specified by a Maven profile
           <artifactId>hadoop-core</artifactId>
           <version>${hadoop.version}</version>
         </dependency>
+        <!-- ch05 ミニクラスタを動作させるためのHadoopテストの成果物 -->
         <dependency>
           <groupId>org.apache.hadoop</groupId>
           <artifactId>hadoop-test</artifactId>
@@ -54,6 +55,7 @@ A module which allows the Hadoop dependencies to be specified by a Maven profile
           <groupId>log4j</groupId>
           <artifactId>log4j</artifactId>
         </dependency>
+        <!-- ch05 hadoop-testの依存解決のために必要なjar -->
         <dependency>
           <groupId>com.sun.jersey</groupId>
           <artifactId>jersey-core</artifactId>
@@ -129,6 +131,7 @@ A module which allows the Hadoop dependencies to be specified by a Maven profile
           <artifactId>jackson-core-asl</artifactId>
           <version>1.7.3</version> <!-- To match that in Avro -->
         </dependency>
+        <!-- ch05 MapReduceのUnitテスト用ライブラリ -->
         <dependency>
           <groupId>org.apache.mrunit</groupId>
           <artifactId>mrunit</artifactId>
@@ -343,7 +346,7 @@ A module which allows the Hadoop dependencies to be specified by a Maven profile
         </property>
       </activation>
       <properties>
-        <hadoop.version>2.2.0</hadoop.version>
+        <hadoop.version>2.7.2</hadoop.version>
       </properties>
       <dependencies>
         <dependency>

@@ -5,7 +5,7 @@
       <job-tracker>${jobTracker}</job-tracker>
       <name-node>${nameNode}</name-node>
       <prepare>
-        <delete path="${nameNode}/user/${wf:user()}/output"/>
+        <delete path="${nameNode}/output"/>
       </prepare>
       <configuration>
         <property>
@@ -30,7 +30,7 @@
         </property>        
         <property>
           <name>mapred.input.dir</name>
-          <value>/user/${wf:user()}/input/ncdc/micro</value>
+          <value>/user/${wf:user()}/input/ncdc</value>
         </property>
         <property>
           <name>mapred.output.dir</name>

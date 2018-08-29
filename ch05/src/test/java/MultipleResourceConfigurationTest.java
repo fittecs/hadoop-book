@@ -45,13 +45,6 @@ public class MultipleResourceConfigurationTest {
     System.setProperty("size", "14");
     assertThat(conf.get("size-weight"), is("14,heavy"));
     // ^^ MultipleResourceConfigurationTest-SystemExpansion
-
-    // system properties are not picked up
-    // vv MultipleResourceConfigurationTest-NoSystemByDefault
-    System.setProperty("length", "2");
-    assertThat(conf.get("length"), is((String) null));
-    // ^^ MultipleResourceConfigurationTest-NoSystemByDefault
-
   }
 
 }
